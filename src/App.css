@@ -1,0 +1,109 @@
+:root {
+  font-family: 'Wix Madefor Text', sans-serif;
+  --outline-color: hsl(345, 90%, 50%);
+  --accent-background-color: hsl(255, 50%, 30%);
+  --accent-text-color: hsl(255, 50%, 95%);
+
+  --gradient-left: hsl(345, 90%, 50%);
+  --gradient-right: hsl(255, 50%, 50%);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--outline-color);
+  outline-offset: 0.1em;
+}
+
+.light-theme {
+  --text-color: hsl(255, 50%, 30%);
+  --background-color: hsl(255, 50%, 95%);
+}
+
+.dark-theme {
+  --text-color: hsl(255, 50%, 90%);
+  --background-color: hsl(255, 50%, 5%);
+}
+
+.app-container {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: grid;
+  grid-template-rows: 7rem 1fr 5rem;
+  min-height: 100vh;
+  grid-template-areas: "header" "main" "footer";
+}
+
+header {
+  border-bottom: 1px solid currentColor;
+  grid-area: header;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.1s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* HEADER */
+h1 {
+  font-size: clamp(2rem, 7vw, 4rem);
+  background-image: linear-gradient(
+    to right,
+    var(--gradient-left),
+    var(--gradient-right)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.a11y-svg {
+    width: 3em;
+}
+
+.theme-btn {
+  position: absolute;
+  padding: 0.2em;
+  top: 1em;
+  right: 1em;
+  background-color: inherit;
+}
+
+/* MAIN */
+
+main {
+  grid-area: main;
+  margin: 1em 0;
+}
+
+.welcome-container {
+  display:flex;
+  /* flex-wrap: wrap; */
+  gap: 2em;
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+.welcome-container > .form {
+  width: 70%;
+}
+
+.welcome-container > .rating {
+  width: 30%;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid currentColor;
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

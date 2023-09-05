@@ -1,0 +1,82 @@
+.card {
+  position: relative;
+  padding: 0.8em;
+  border-radius: 5px;
+  aspect-ratio: 1/1;
+  box-shadow: 0 4px 8px 0 var(--text-color);
+  width: 100%;
+  max-width: 10em;
+  margin: 0 auto;
+}
+
+/* .card .front {
+  position: absolute;
+  transform: rotateY(90deg);
+}
+
+.flipped .front {
+  transform: rotate(0deg);
+} */
+
+.flipped .back {
+  display: block;
+}
+
+.flipped .front {
+  display: none;
+}
+
+.back {
+  display: none;
+  width: 100%;
+  aspect-ratio: 1/1;
+  padding: 0.2em;
+  border-radius: 5px;
+}
+
+.front {
+  display: block;
+}
+
+.card-button {
+  background-image: linear-gradient(
+    to right,
+    var(--gradient-left),
+    var(--gradient-right)
+  );
+  width: 100%;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+}
+.card-description span {
+  display: block;
+}
+
+.card-description {
+  font-size: 1.1rem;
+}
+
+.card-type {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin-bottom: 0.5em;
+}
+
+code {
+  font-weight: bold;
+}
+
+.card.flipped:has(.correct)::after {
+  content: "\1F525";
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+}
+
+.card.flipped:has(.wrong)::after {
+  content: "\1F914";
+  font-size: 2rem;
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+}

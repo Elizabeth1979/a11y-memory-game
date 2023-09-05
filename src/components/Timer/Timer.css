@@ -1,0 +1,6 @@
+.timer-container {
+    font-size: 3rem;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    padding: 5px 10px;
+}

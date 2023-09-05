@@ -1,0 +1,50 @@
+.game-section {
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  margin: 0 auto;
+  justify-content:space-between;
+  min-height: 100%;
+}
+
+.game-header,
+.game-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.game-btn {
+  background-color: var(--accent-background-color);
+  color: var(--accent-text-color);
+  padding: 0.5em 1.2em;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 10em;
+  align-self: center;
+  box-shadow: 0 4px 8px 0 var(--text-color);
+}
+.register-btn {
+  border: 1px solid var(--accent-background-color);
+  background-color: var(--accent-text-color);
+  color: var(--accent-background-color);
+  padding: 0.5em 1.2em;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 10em;
+  align-self: center;
+  box-shadow: 0 4px 8px 0 var(--text-color);
+}
+
+.turns {
+  align-self: center;
+  padding: 0.5em 1.2em;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+  gap: 1em;
+  list-style: none;
+  padding: 2em 1em;
+}

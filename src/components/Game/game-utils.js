@@ -2,7 +2,7 @@ import { pickRandomItems, shuffleArray } from "../../utils/array-utils";
 
 export const prepareData = function(data) {
     const QandA = [];
-    const randomQandA = pickRandomItems(data, 2);
+    const randomQandA = pickRandomItems(data, 5);
 
     for (let i=0; i<randomQandA.length; i++) {
         let question = {

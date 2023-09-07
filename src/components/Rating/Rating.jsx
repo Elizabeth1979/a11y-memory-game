@@ -12,7 +12,7 @@ function Rating() {
     });
   }, []);
 
-  // console.log(users);
+  console.log(users);
 
   return (
     <aside>
@@ -23,11 +23,11 @@ function Rating() {
         <ol aria-label="participants" tabIndex={0} className="participants">
           {users
             .sort((user1, user2) => {
-              return user2.turns - user1.turns;
+              return user1.turns - user2.turns;
             })
             .map((user) => {
               return (
-                <li className="participant">
+                <li className="participant" key={crypto. randomUUID()}>
                   <div>
                     <p className="nickname">{user.nickname}</p>
                     <div className="scoring">

@@ -7,29 +7,42 @@ function Rating() {
 
   useEffect(() => {
     getUsers().then((data) => {
+      if (data === null) return;
       setUsers(Object.values(data));
     });
   }, []);
 
-  console.log(users);
+  // console.log(users);
 
   return (
     <aside>
-      <h2>Rating</h2>
-      <ul>
-        {users.sort((user1, user2)=>{
-          return user2.turns - user1.turns;
-        }).map((user) => {
-          return (
-            <li>
-              <p>User Nickname:
-              {user.nickname} , 
-              {user.turns}
-              </p>
-            </li>
-          );
-        })}
-      </ul>
+      <h2>
+        Top scores <span aria-hidden="true">&#127942;</span>
+      </h2>
+      {users.length && (
+        <ol aria-label="participants" tabIndex={0} className="participants">
+          {users
+            .sort((user1, user2) => {
+              return user2.turns - user1.turns;
+            })
+            .map((user) => {
+              return (
+                <li className="participant">
+                  <div>
+                    <p className="nickname">{user.nickname}</p>
+                    <div className="scoring">
+                      <p>
+                        <span className="visually-hidden">time</span>05:00
+                        <span aria-hidden="true">{` |`}</span>
+                      </p>
+                      <p>{`${user.turns} turns`}</p>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+        </ol>
+      )}
     </aside>
   );
 }

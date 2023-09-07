@@ -75,9 +75,10 @@ h1 {
 .theme-btn {
   position: absolute;
   padding: 0.2em;
-  top: 0.5em;
-  right: 0.5em;
+  top: 1em;
+  right: 1em;
   background-color: inherit;
+  border: 1px solid var(--text-color);
 }
 
 /* MAIN */
@@ -112,7 +113,7 @@ footer {
   align-items: center;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 750px) {
   header {
     align-items: end;
   }

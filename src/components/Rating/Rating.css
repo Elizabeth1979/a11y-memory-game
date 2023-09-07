@@ -1,3 +1,55 @@
 aside {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+h2 {
+  font-size: clamp(1.2rem, 1.5rem, 2rem);
+}
+
+.participants {
+  width: fit-content;
+  position: relative;
+  height: 22em;
+  overflow-y: auto;
+  padding: 0.5em 2em;
+  border: 1px dotted var(--outline-color);
+  /* scrollbar-color: red; */
+}
+
+/* .participants::after {
+  content: "\2B07";
+  position: absolute;
+  right: 5px;
+  bottom: 0;
+} */
+/* ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+} */
+
+
+.participants li::marker {
+  color: var(--outline-color);
+  font-size: 1.5rem;
+}
+
+.nickname {
+  font-size: 1.2rem;
+}
+
+.scoring {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.2em;
+  flex-wrap: wrap;
 }

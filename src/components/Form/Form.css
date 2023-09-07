@@ -5,8 +5,9 @@
 .explanation {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 0.5em;
     margin-bottom: 2em;
+    max-width: 45ch;
 }
 
 .keyboard {
@@ -14,12 +15,20 @@
   font-weight: 900;
 }
 
+.ninja {
+  font-size: 1.8rem;
+  color: var(--outline-color);
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
   gap: 1em;
   max-width: 20em;
-  /* min-width: 18em; */
+}
+
+.form-title {
+  font-size: 1.8rem;
 }
 
 .input-container {

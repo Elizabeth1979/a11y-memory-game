@@ -61,6 +61,7 @@ function Form({ onStart, isFirstTime }) {
           can.
         </p>
         <p className="keyboard">Use your keyboard only!</p>
+        <p><span className="ninja">Ninja challenge</span> Use a screen reader <span aria-hidden="true">&#128584;</span></p>
         <p>
           Goodluck <span aria-hidden="true">&#128640;</span>
         </p>
@@ -75,7 +76,7 @@ function Form({ onStart, isFirstTime }) {
         autoComplete="off"
         onSubmit={submitHandler}
       >
-        <h2 id="form-title">Enter your details</h2>
+        <h2 className="form-title" id="form-title">Enter your info for scoring</h2>
         <div className="input-container">
           <label htmlFor="nickname">
             Nickname <span className="small-font">{`(required)`}</span>

@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Wix Madefor Text', sans-serif;
+  font-family: "Wix Madefor Text", sans-serif;
   --outline-color: hsl(345, 90%, 50%);
   --accent-background-color: hsl(255, 50%, 30%);
   --accent-text-color: hsl(255, 50%, 95%);
@@ -36,7 +36,7 @@ header {
   border-bottom: 1px solid currentColor;
   grid-area: header;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   opacity: 0;
   transform: translateY(-50px);
@@ -52,26 +52,31 @@ header {
 }
 
 /* HEADER */
+
+.header-content {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 0.5em;
+}
+
 h1 {
   font-size: clamp(2rem, 7vw, 4rem);
-  background-image: linear-gradient(
-    to right,
-    var(--gradient-left),
-    var(--gradient-right)
-  );
+  background-image: linear-gradient(to right, var(--gradient-left), var(--gradient-right));
   -webkit-background-clip: text;
   color: transparent;
 }
 
 .a11y-svg {
-    width: 3em;
+  width: 3em;
+  height: 3em;
 }
 
 .theme-btn {
   position: absolute;
   padding: 0.2em;
-  top: 1em;
-  right: 1em;
+  top: 0.5em;
+  right: 0.5em;
   background-color: inherit;
 }
 
@@ -83,8 +88,7 @@ main {
 }
 
 .welcome-container {
-  display:flex;
-  /* flex-wrap: wrap; */
+  display: flex;
   gap: 2em;
   margin: 0 auto;
   max-width: 80%;
@@ -106,4 +110,27 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 700px) {
+  header {
+    align-items: end;
+  }
+
+  .a11y-svg {
+    width: 2em;
+    height: 2em;
+  }
+
+  .welcome-container {
+    flex-direction: column;
+  }
+
+  .welcome-container > .form {
+    width: 100%;
+  }
+
+  .welcome-container > .rating {
+    width: 100%;
+  }
 }

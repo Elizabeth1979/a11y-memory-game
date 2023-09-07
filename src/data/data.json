@@ -44,8 +44,8 @@
   {
     "id": "8",
     "topic": "Keyboard",
-    "question": "The tabindex attribute",
-    "answer": "Cannot be greater than 0"
+    "question": "The <code>tabindex</code> attribute",
+    "answer": "Is not greater than 0"
   },
   {
     "id": "9",
@@ -98,7 +98,7 @@
   {
     "id": "17",
     "topic": "Forms",
-    "question": "An attribute that links between the form label and the input",
+    "question": "An attribute that connects the form label with the input",
     "answer": "the <code>for</code> attribute which corresponds to the input <code>id</code>"
   },
   {

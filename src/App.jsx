@@ -28,7 +28,7 @@ function App() {
     <div className={`app-container ${themeClass}`}>
       <header>
         <div className="header-content">
-          <h1>Play a11y game</h1>
+          <h1>A11y memory game</h1>
           <svg
             role="img"
             aria-labelledby="a11y"

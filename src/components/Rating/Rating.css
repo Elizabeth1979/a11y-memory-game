@@ -1,23 +1,18 @@
 aside {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
 }
 
-h2 {
-  font-size: clamp(1.2rem, 1.5rem, 2rem);
+.rating-title {
+  margin-bottom: 1em;
 }
 
 .participants {
   width: fit-content;
-  position: relative;
-  height: 22em;
+  max-height: 30em;
   overflow-y: auto;
   padding: 0.5em 2em;
   border: 1px dotted var(--outline-color);
   border-radius: 5px;
-  /* scrollbar-color: red; */
 }
 
 /* .participants::after {
@@ -44,7 +39,7 @@ h2 {
 }
 
 .nickname {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .scoring {

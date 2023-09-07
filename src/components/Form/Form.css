@@ -1,5 +1,10 @@
 .form-section {
   width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1em;
 }
 
 .explanation {
@@ -10,14 +15,13 @@
     max-width: 45ch;
 }
 
-.keyboard {
-  font-size: 1.8rem;
-  font-weight: 900;
-}
-
 .ninja {
   font-size: 1.8rem;
   color: var(--outline-color);
+}
+
+.goodluck {
+  font-size: 3rem;
 }
 
 .form-container {
@@ -25,10 +29,6 @@
   flex-direction: column;
   gap: 1em;
   max-width: 20em;
-}
-
-.form-title {
-  font-size: 1.8rem;
 }
 
 .input-container {
@@ -48,6 +48,10 @@ input {
 input:focus {
   background-color: var(--accent-background-color);
   color: var(--accent-text-color);
+}
+
+.error {
+  color: var(--outline-color);
 }
 
 .small-font {

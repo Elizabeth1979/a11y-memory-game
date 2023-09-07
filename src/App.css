@@ -67,6 +67,10 @@ h1 {
   color: transparent;
 }
 
+h2 {
+  font-size: 1.8rem;
+}
+
 .a11y-svg {
   width: 3em;
   height: 3em;
@@ -90,7 +94,7 @@ main {
 
 .welcome-container {
   display: flex;
-  gap: 2em;
+  gap: 3em;
   margin: 0 auto;
   max-width: 80%;
 }

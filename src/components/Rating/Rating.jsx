@@ -16,18 +16,21 @@ function Rating() {
 
   return (
     <aside>
-      <h2>
+      <h2 className="rating-title">
         Top scores <span aria-hidden="true">&#127942;</span>
       </h2>
       {users.length && (
         <ol aria-label="participants" tabIndex={0} className="participants">
           {users
+            .filter((user) => {
+              return user.turns !== 0;
+            })
             .sort((user1, user2) => {
               return user1.turns - user2.turns;
             })
             .map((user) => {
               return (
-                <li className="participant" key={crypto. randomUUID()}>
+                <li className="participant" key={crypto.randomUUID()}>
                   <div>
                     <p className="nickname">{user.nickname}</p>
                     <div className="scoring">

@@ -2,7 +2,6 @@ import { useRef, useState } from "react";
 import "./Form.css";
 import { addUser } from "../../firebase/database";
 
-
 function isValidEmail(text) {
   return text !== "" && text.includes("@");
 }
@@ -35,7 +34,7 @@ function Form({ onStart, isFirstTime }) {
       onStart(newUser);
     } else if (!validNickname && !validEmail) {
       setNicknameErrorMessage("Please fill in your nickname");
-      setEmailErrorMessage("Please fill in a proper email address");
+      setEmailErrorMessage("Please fill in a proper email as follows: elli@wix.com");
       nicknameRef.current.focus();
     } else {
       if (!validNickname) {
@@ -46,7 +45,7 @@ function Form({ onStart, isFirstTime }) {
       }
 
       if (!validEmail) {
-        setEmailErrorMessage("Please fill in a proper email address");
+        setEmailErrorMessage("Please fill in a proper email as follows: elli@wix.com");
         setNicknameErrorMessage("");
         emailRef.current.focus();
       }
@@ -56,13 +55,15 @@ function Form({ onStart, isFirstTime }) {
   return (
     <section className="form-section">
       <div id="form-description" className="explanation">
+        <p>Match questions with answers as fast as you can.</p>
+        
+        <p>Use the keyboard!</p>
         <p>
-          In this short memory game, you are expected to match questions with answers as fast as you
-          can.
+          <span className="ninja">Ninja challenge</span> Use a screen reader{" "}
+          <span aria-hidden="true">&#128584;</span>
         </p>
-        <p className="keyboard">Use your keyboard only!</p>
-        <p><span className="ninja">Ninja challenge</span> Use a screen reader <span aria-hidden="true">&#128584;</span></p>
-        <p>
+        <img src="/example.png" alt="matching example" />
+        <p className="goodluck">
           Goodluck <span aria-hidden="true">&#128640;</span>
         </p>
       </div>
@@ -76,7 +77,9 @@ function Form({ onStart, isFirstTime }) {
         autoComplete="off"
         onSubmit={submitHandler}
       >
-        <h2 className="form-title" id="form-title">Enter your info for scoring</h2>
+        <h2 className="form-title" id="form-title">
+          Fill in your info to participate
+        </h2>
         <div className="input-container">
           <label htmlFor="nickname">
             Nickname <span className="small-font">{`(required)`}</span>
@@ -89,7 +92,7 @@ function Form({ onStart, isFirstTime }) {
             autoFocus={!isFirstTime}
           />
           {!!nicknameErrorMessage && (
-            <p id="nickname-error" className="small-font">
+            <p id="nickname-error" className="error small-font">
               {nicknameErrorMessage}
             </p>
           )}
@@ -100,7 +103,7 @@ function Form({ onStart, isFirstTime }) {
           </label>
           <input id="email" ref={emailRef} type="email" aria-describedby="email-error" />
           {!!emailErrorMessage && (
-            <p id="email-error" className="small-font">
+            <p id="email-error" className="error small-font">
               {emailErrorMessage}
             </p>
           )}

@@ -39,15 +39,25 @@
 }
 
 .card-button {
-  background-image: linear-gradient(
-    to right,
-    var(--gradient-left),
-    var(--gradient-right)
-  );
+  background-image: url("/a11y-card.jpeg");
+  background-size: cover;
   width: 100%;
   aspect-ratio: 1/1;
   cursor: pointer;
+  transition: all 250ms ease-in-out;
 }
+
+.card-button:disabled {
+  cursor: not-allowed;
+  filter: blur(5px);
+  filter: grayscale(100%);
+}
+
+.card-button:not(:disabled):hover,
+.animal-btn:not(:disabled):focus {
+  scale: 1.1;
+}
+
 .card-description span {
   display: block;
 }

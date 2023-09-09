@@ -42,9 +42,8 @@ function Form({ onStart, isFirstTime }) {
         <p>Match questions with answers as fast as you can.</p>
         <div className="keyboard">
           <p>Use the keyboard!</p>
-          <img src="/no-mouse.jpeg" alt="no mouse" class="mouse" />
+          <img src="/no-mouse.jpeg" alt="no mouse" className="mouse" />
         </div>
-
         <p>
           <span className="ninja">Ninja challenge</span> Use a screen reader{" "}
           <span aria-hidden="true">&#128584;</span>

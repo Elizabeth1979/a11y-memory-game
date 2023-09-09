@@ -16,7 +16,6 @@ function Rating() {
 
   useEffect(() => {
     const ratingContainer = ratingContainerRef.current;
-    console.log(ratingContainer);
     if(ratingContainer) {
       setIsOverflowing(ratingContainer.scrollHeight > ratingContainer.clientHeight);
     }
@@ -25,8 +24,7 @@ function Rating() {
   const filteredUsers = users.filter((user) => {
     return user.turns !== 0;
   });
-  
-  console.log("overflowing", isOverflowing);
+
   console.log("filtered users", filteredUsers);
   console.log("users", users);
 
@@ -39,7 +37,7 @@ function Rating() {
         <ol ref={ratingContainerRef} aria-label="participants" tabIndex={isOverflowing ? 0 : -1} className="participants">
           {filteredUsers
             .sort((user1, user2) => {
-              return user1.turns - user2.turns;
+              return user1.bestTimeSeconds - user2.bestTimeSeconds;
             })
             .map((user) => {
               return (
@@ -48,7 +46,7 @@ function Rating() {
                     <p className="nickname">{user.nickname}</p>
                     <div className="scoring">
                       <p>
-                        <span className="visually-hidden">time</span>05:00
+                        <span className="visually-hidden">time</span>{user.bestTimeStr}
                         <span aria-hidden="true">{` |`}</span>
                       </p>
                       <p>{`${user.turns} turns`}</p>

@@ -18,21 +18,22 @@ export async function addUser(name, nickname) {
   const user = {
     name: name,
     nickname: nickname,
-    bestTime: -1,
+    bestTimeStr: "",
+    bestTimeSeconds: -1,
     turns: 0,
   };
   await set(path, user);
   return user;
 }
 
-export async function updateScore(user, bestTime, turns) {
+export async function updateScore(user, bestTimeStr, bestTimeSeconds, turns) {
   const db = getDatabase();
   // Write the new post's data simultaneously in the posts list and the user's post list.
   const updates = {};
 
   // read current data validate
 
-  updates["/users/" + user.name] = {...user, bestTime: bestTime, turns: turns };
+  updates["/users/" + user.name] = {...user, bestTimeStr, bestTimeSeconds, turns };
 
   return update(ref(db), updates);
 }

@@ -1,47 +1,28 @@
 import "./Game.css";
 import { useEffect, useRef, useState } from "react";
-import { prepareData } from "./game-utils";
+import { prepareData, calculateTime } from "./game-utils";
 import Card from "../Card/Card";
-import Timer from "../Timer/Timer";
 import { updateScore } from "../../firebase/database";
-
-// side effect (event, useEffect)
+import Confetti from "../../Confetti";
 
 function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
-  // const [disabled, setDisabled] = useState(false);
-  const [isResetTimer, setIsResetTimer] = useState(false);
-  const [isFirstGame, setIsFirstGame] = useState(true);
-  const cardsRef = useRef(null);
+  // const [isFirstGame, setIsFirstGame] = useState(true);
   const gameRef = useRef(null);
-
-  const timerId1 = useRef(null);
-  const timerId2 = useRef(null);
-  // const timerId3 = useRef(null);
+  const [time, setTime] = useState(0);
 
   const isGameOver = cards.length === 0 ? false : cards.every((card) => card.match === true);
 
   const prepareNewGame = () => {
-    clearTimeout(timerId1.current);
-    clearTimeout(timerId2.current);
-    // clearTimeout(timerId3.current);
     const shuffledCards = prepareData(data);
     setCards(shuffledCards);
     setChoiceOne(null);
     setChoiceTwo(null);
     setTurns(0);
-    // setDisabled(false);
-    setIsResetTimer(true);
-    timerId1.current = setTimeout(() => {
-      setIsResetTimer(false);
-    }, 100);
-    timerId2.current = setTimeout(() => {
-      isFirstGame ? gameRef.current.focus() : cardsRef.current.focus();
-      setIsFirstGame(false);
-    }, 1000);
+    gameRef.current.focus();
   };
 
   const goToRegistrationForm = () => {
@@ -64,7 +45,6 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
     setChoiceOne(null);
     setChoiceTwo(null);
     setTurns((prevTurns) => prevTurns + 1);
-    // setDisabled(false);
   };
 
   useEffect(() => {
@@ -77,7 +57,6 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
 
   useEffect(() => {
     if (choiceOne && choiceTwo) {
-      // setDisabled(true);
       if (choiceOne.corresponding === choiceTwo.corresponding) {
         setCards(
           cards.map((card) => {
@@ -94,12 +73,10 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
     }
   }, [choiceOne, choiceTwo]);
 
-  console.log("isGameOver", isGameOver);
-
   useEffect(() => {
     if (!isGameOver) return;
 
-    updateScore(user, 0, turns)
+    updateScore(user, calculateTime(time), time, turns)
       .then(() => {
         console.log("success");
       })
@@ -108,43 +85,57 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
       });
   }, [isGameOver]);
 
+  useEffect(() => {
+    if (isGameOver) return;
+
+    const timeInterval = setInterval(() => {
+      setTime((prevTime) => prevTime + 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(timeInterval);
+    };
+  }, [time]);
+
   return (
-    <section ref={gameRef} aria-label="game" tabIndex="-1" className="game-section">
-      <div className="game-header">
-        <div>
-          {isGameOver ? (
-            <p>
-              Game over! <span aria-hidden="true">&#127942;</span>
-            </p>
-          ) : (
-            <p>
-              Game on! <span aria-hidden="true">&#9203;</span>
-            </p>
-          )}
+    <>
+      {isGameOver && <Confetti />}
+      <section ref={gameRef} aria-label="game panel" tabIndex="-1" className="game-section">
+        <div className="game-header">
+          <div>
+            {isGameOver ? (
+              <p>
+                Game over! <span aria-hidden="true">&#127942;</span>
+              </p>
+            ) : (
+              <p>
+                Game on! <span aria-hidden="true">&#9203;</span>
+              </p>
+            )}
+          </div>
+          <div className="timer-container">
+            <p className="visually-hidden">Timer</p>
+            {calculateTime(time)}
+          </div>
+          <p className="turns">Turns: {turns}</p>
         </div>
-        <Timer isGameOver={isGameOver} isResetTimer={isResetTimer} />
-        <p className="turns">Turns: {turns}</p>
-      </div>
-      <ul role="list" aria-label="cards" ref={cardsRef} tabIndex="-1" className="cards-container">
-        {cards.map((card) => (
-          <Card
-            key={card.id}
-            card={card}
-            flipped={card === choiceOne || card === choiceTwo || card.match}
-            handleChoice={handleChoice}
-            // disabled={disabled}
-          />
-        ))}
-      </ul>
-      <div className="game-footer">
-        <button className="game-btn" onClick={prepareNewGame}>
-          New Game
-        </button>
-        <button className="register-btn" onClick={goToRegistrationForm}>
-          Register
-        </button>
-      </div>
-    </section>
+        <ul role="list" aria-label="cards" className="cards-container">
+          {cards.map((card) => (
+            <Card
+              key={card.id}
+              card={card}
+              flipped={card === choiceOne || card === choiceTwo || card.match}
+              handleChoice={handleChoice}
+            />
+          ))}
+        </ul>
+        <div className="game-footer">
+          <button className="game-btn" onClick={goToRegistrationForm}>
+            New Game
+          </button>
+        </div>
+      </section>
+    </>
   );
 }
 

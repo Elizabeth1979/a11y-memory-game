@@ -5,13 +5,23 @@
   margin: 0 auto;
   justify-content:space-between;
   min-height: 100%;
+  padding: 1em;
+  outline: none;
 }
 
 .game-header,
 .game-footer {
+  font-size: 1.8rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.timer-container {
+  font-size: 3rem;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  padding: 5px 10px;
 }
 
 .game-btn {
@@ -19,18 +29,6 @@
   color: var(--accent-text-color);
   padding: 0.5em 1.2em;
   border-radius: 5px;
-  cursor: pointer;
-  width: 10em;
-  align-self: center;
-  box-shadow: 0 4px 8px 0 var(--text-color);
-}
-.register-btn {
-  border: 1px solid var(--accent-background-color);
-  background-color: var(--accent-text-color);
-  color: var(--accent-background-color);
-  padding: 0.5em 1.2em;
-  border-radius: 5px;
-  cursor: pointer;
   width: 10em;
   align-self: center;
   box-shadow: 0 4px 8px 0 var(--text-color);

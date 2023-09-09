@@ -57,7 +57,7 @@
 }
 
 .card-button:hover,
-.animal-btn:focus {
+.card-button:focus {
   scale: 1.1;
 } 
 

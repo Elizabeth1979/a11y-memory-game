@@ -8,7 +8,7 @@
 }
 
 figure {
-  border: 3px dotted var(--accent-background-color);
+  border: 3px dotted var(--accent-color);
 }
 
 figcaption {
@@ -38,7 +38,7 @@ figcaption {
 
 .ninja {
   font-size: 1.8rem;
-  color: var(--outline-color);
+  color: var(--accent-color);
 }
 
 .goodluck {
@@ -72,7 +72,6 @@ input {
   background-color: inherit;
   border: 1px solid var(--text-color);
   transition: all 0.1s ease-in;
-  caret-color: var(--background-color);
 }
 
 input:focus {
@@ -81,7 +80,7 @@ input:focus {
 }
 
 .error {
-  color: var(--outline-color);
+  color: var(--accent-color);
 }
 
 .small-font {

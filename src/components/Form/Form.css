@@ -7,6 +7,15 @@
   gap: 1em;
 }
 
+figure {
+  border: 3px dotted var(--accent-background-color);
+}
+
+figcaption {
+  text-align: center;
+  font-size: 1rem;
+}
+
 .explanation {
   display: flex;
   flex-direction: column;
@@ -47,7 +56,7 @@
 
 input {
   border-radius: 5px;
-  padding: 0 0.2em;
+  padding: 0.5em 0.5em;
   background-color: inherit;
   border: 1px solid var(--text-color);
   transition: all 0.1s ease-in;

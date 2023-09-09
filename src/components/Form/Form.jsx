@@ -10,7 +10,7 @@ function Form({ onStart, isFirstTime }) {
     isNicknameValid: true,
     isEmailValid: true,
   });
-  
+
   const submitHandler = async (e) => {
     e.preventDefault();
     const emailValue = emailRef.current.value;
@@ -46,7 +46,10 @@ function Form({ onStart, isFirstTime }) {
           <span className="ninja">Ninja challenge</span> Use a screen reader{" "}
           <span aria-hidden="true">&#128584;</span>
         </p>
-        <img src="/example.png" alt="matching example" />
+        <figure>
+          <img src="/example.png" alt="" />
+          <figcaption>Match Example</figcaption>
+        </figure>
         <p className="goodluck">
           Goodluck <span aria-hidden="true">&#128640;</span>
         </p>

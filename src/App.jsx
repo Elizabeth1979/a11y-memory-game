@@ -6,12 +6,14 @@ import Form from "./components/Form/Form";
 import Rating from "./components/Rating/Rating";
 import { CiLight } from "react-icons/ci";
 import { WiMoonAltWaxingCrescent1 } from "react-icons/wi";
+import Liveregion from "./components/Liveregion/Liveregion";
 
 function App() {
   const [isGameOn, setGameOn] = useState(false);
   const [user, setUser] = useState(null);
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [isFirstTime, setIsFirstTime] = useState(true);
+  const [message, setMessage] = useState("");
 
   const themeClass = isDarkTheme ? "dark-theme" : "light-theme";
 
@@ -66,17 +68,23 @@ function App() {
           </svg>
         </div>
         <button
-          aria-label="dark theme"
-          aria-pressed={isDarkTheme ? "true" : "false"}
+          aria-label="activate dark mode"
+          aria-pressed={isDarkTheme ? "false" : "true"}
           className="theme-btn"
           onClick={toggleTheme}
         >
-          {isDarkTheme ? <CiLight /> : <WiMoonAltWaxingCrescent1 />}
+          {isDarkTheme ? <WiMoonAltWaxingCrescent1 /> : <CiLight />}
         </button>
       </header>
       <main>
         {isGameOn ? (
-          <Game data={data} user={user} setGameOn={setGameOn} setIsFirstTime={setIsFirstTime} />
+          <Game
+            data={data}
+            user={user}
+            setGameOn={setGameOn}
+            setMessage={setMessage}
+            setIsFirstTime={setIsFirstTime}
+          />
         ) : (
           <div className="welcome-container">
             <div className="form">
@@ -91,6 +99,7 @@ function App() {
       <footer>
         <p>Created by e11i</p>
       </footer>
+      <Liveregion message={message} setMessage={setMessage}/>
     </div>
   );
 }

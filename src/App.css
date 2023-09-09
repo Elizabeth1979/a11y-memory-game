@@ -14,11 +14,13 @@
 }
 
 .light-theme {
+  --active-card-background: hsl(345, 90%, 80%);
   --text-color: hsl(255, 50%, 30%);
   --background-color: hsl(255, 50%, 95%);
 }
 
 .dark-theme {
+  --active-card-background: hsl(345, 60%, 40%);
   --text-color: hsl(255, 50%, 90%);
   --background-color: hsl(255, 50%, 5%);
 }

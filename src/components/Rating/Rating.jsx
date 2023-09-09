@@ -1,9 +1,11 @@
 import "./Rating.css";
 import { getUsers } from "../../firebase/database";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 function Rating() {
   const [users, setUsers] = useState([]);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+  const ratingContainerRef = useRef(null);
 
   useEffect(() => {
     getUsers().then((data) => {
@@ -12,11 +14,21 @@ function Rating() {
     });
   }, []);
 
-  console.log(users);
-
+  useEffect(() => {
+    const ratingContainer = ratingContainerRef.current;
+    console.log(ratingContainer);
+    if(ratingContainer) {
+      setIsOverflowing(ratingContainer.scrollHeight > ratingContainer.clientHeight);
+    }
+  }, [users]);
+  
   const filteredUsers = users.filter((user) => {
     return user.turns !== 0;
   });
+  
+  console.log("overflowing", isOverflowing);
+  console.log("filtered users", filteredUsers);
+  console.log("users", users);
 
   return (
     <aside>
@@ -24,7 +36,7 @@ function Rating() {
         Top scores <span aria-hidden="true">&#127942;</span>
       </h2>
       {!!filteredUsers.length && (
-        <ol aria-label="participants" tabIndex={0} className="participants">
+        <ol ref={ratingContainerRef} aria-label="participants" tabIndex={isOverflowing ? 0 : -1} className="participants">
           {filteredUsers
             .sort((user1, user2) => {
               return user1.turns - user2.turns;

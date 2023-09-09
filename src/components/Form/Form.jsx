@@ -1,52 +1,36 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Form.css";
 import { addUser } from "../../firebase/database";
-
-function isValidEmail(text) {
-  return text !== "" && text.includes("@");
-}
-
-function isValidNickname(text) {
-  return text !== "";
-}
-
-function createUniqueName(email) {
-  const name = email.split("@")[0];
-  const noSpecialCharsName = name.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, "");
-  return noSpecialCharsName;
-}
+import { checkEmail, checkNickname, createUniqueNameForDB, errors } from "./form-utils";
 
 function Form({ onStart, isFirstTime }) {
   const nicknameRef = useRef(null);
   const emailRef = useRef(null);
-  const [emailErrorMessage, setEmailErrorMessage] = useState("");
-  const [nicknameErrorMessage, setNicknameErrorMessage] = useState("");
-
+  const [formFieldsValidation, setFormFieldsValidation] = useState({
+    isNicknameValid: true,
+    isEmailValid: true,
+  });
+  
   const submitHandler = async (e) => {
     e.preventDefault();
     const emailValue = emailRef.current.value;
     const nicknameValue = nicknameRef.current.value;
-    const validEmail = isValidEmail(emailValue);
-    const validNickname = isValidNickname(nicknameValue);
-    if (validEmail && validNickname) {
-      const name = createUniqueName(emailValue);
+    const isNicknameValid = checkNickname(nicknameValue);
+    const isEmailValid = checkEmail(emailValue);
+
+    if (isEmailValid && isNicknameValid) {
+      const name = createUniqueNameForDB(emailValue);
       const newUser = await addUser(name, nicknameValue);
       onStart(newUser);
-    } else if (!validNickname && !validEmail) {
-      setNicknameErrorMessage("Please fill in your nickname");
-      setEmailErrorMessage("Please fill in a proper email as follows: elli@wix.com");
-      nicknameRef.current.focus();
     } else {
-      if (!validNickname) {
-        console.log("hey");
-        setNicknameErrorMessage("Please fill in your nickname");
-        setEmailErrorMessage("");
+      setFormFieldsValidation({
+        ...formFieldsValidation,
+        isNicknameValid,
+        isEmailValid,
+      });
+      if (!isNicknameValid) {
         nicknameRef.current.focus();
-      }
-
-      if (!validEmail) {
-        setEmailErrorMessage("Please fill in a proper email as follows: elli@wix.com");
-        setNicknameErrorMessage("");
+      } else {
         emailRef.current.focus();
       }
     }
@@ -56,7 +40,7 @@ function Form({ onStart, isFirstTime }) {
     <section className="form-section">
       <div id="form-description" className="explanation">
         <p>Match questions with answers as fast as you can.</p>
-        
+
         <p>Use the keyboard!</p>
         <p>
           <span className="ninja">Ninja challenge</span> Use a screen reader{" "}
@@ -82,29 +66,36 @@ function Form({ onStart, isFirstTime }) {
         </h2>
         <div className="input-container">
           <label htmlFor="nickname">
-            Nickname <span className="small-font">{`(required)`}</span>
+            Nickname <span aria-hidden="true" className="small-font">{`(required)`}</span>
           </label>
           <input
             id="nickname"
             ref={nicknameRef}
             type="text"
+            aria-required="true"
             aria-describedby="nickname-error"
             autoFocus={!isFirstTime}
           />
-          {!!nicknameErrorMessage && (
+          {!formFieldsValidation.isNicknameValid && (
             <p id="nickname-error" className="error small-font">
-              {nicknameErrorMessage}
+              {errors.nickname}
             </p>
           )}
         </div>
         <div className="input-container">
           <label htmlFor="email">
-            Email <span className="small-font">{`(required)`}</span>
+            Email <span aria-hidden="true" className="small-font">{`(required)`}</span>
           </label>
-          <input id="email" ref={emailRef} type="email" aria-describedby="email-error" />
-          {!!emailErrorMessage && (
+          <input
+            id="email"
+            ref={emailRef}
+            type="email"
+            aria-required="true"
+            aria-describedby="email-error"
+          />
+          {!formFieldsValidation.isEmailValid && (
             <p id="email-error" className="error small-font">
-              {emailErrorMessage}
+              {errors.email}
             </p>
           )}
         </div>

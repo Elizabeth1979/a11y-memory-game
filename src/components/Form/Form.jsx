@@ -73,6 +73,7 @@ function Form({ onStart, isFirstTime }) {
             ref={nicknameRef}
             type="text"
             aria-required="true"
+            aria-invalid={!formFieldsValidation.isNicknameValid}
             aria-describedby="nickname-error"
             autoFocus={!isFirstTime}
           />
@@ -91,6 +92,7 @@ function Form({ onStart, isFirstTime }) {
             ref={emailRef}
             type="email"
             aria-required="true"
+            aria-invalid={!formFieldsValidation.isEmailValid}
             aria-describedby="email-error"
           />
           {!formFieldsValidation.isEmailValid && (

@@ -7,12 +7,12 @@ import { updateScore } from "../../firebase/database";
 
 // side effect (event, useEffect)
 
-function Game({ data, user, setGameOn, setIsFirstTime }) {
+function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
-  const [disabled, setDisabled] = useState(false);
+  // const [disabled, setDisabled] = useState(false);
   const [isResetTimer, setIsResetTimer] = useState(false);
   const [isFirstGame, setIsFirstGame] = useState(true);
   const cardsRef = useRef(null);
@@ -20,20 +20,20 @@ function Game({ data, user, setGameOn, setIsFirstTime }) {
 
   const timerId1 = useRef(null);
   const timerId2 = useRef(null);
-  const timerId3 = useRef(null);
+  // const timerId3 = useRef(null);
 
   const isGameOver = cards.length === 0 ? false : cards.every((card) => card.match === true);
 
   const prepareNewGame = () => {
-    clearTimeout(timerId1.current)
-    clearTimeout(timerId2.current)
-    clearTimeout(timerId3.current)
+    clearTimeout(timerId1.current);
+    clearTimeout(timerId2.current);
+    // clearTimeout(timerId3.current);
     const shuffledCards = prepareData(data);
     setCards(shuffledCards);
     setChoiceOne(null);
     setChoiceTwo(null);
     setTurns(0);
-    setDisabled(false);
+    // setDisabled(false);
     setIsResetTimer(true);
     timerId1.current = setTimeout(() => {
       setIsResetTimer(false);
@@ -51,7 +51,12 @@ function Game({ data, user, setGameOn, setIsFirstTime }) {
 
   // Handle a choice
   const handleChoice = (card) => {
-    choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+    if (choiceOne && choiceTwo) {
+      setChoiceOne(card);
+      setChoiceTwo(null);
+    } else {
+      choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+    }
   };
 
   // Reset choices and increase turn
@@ -59,7 +64,7 @@ function Game({ data, user, setGameOn, setIsFirstTime }) {
     setChoiceOne(null);
     setChoiceTwo(null);
     setTurns((prevTurns) => prevTurns + 1);
-    setDisabled(false);
+    // setDisabled(false);
   };
 
   useEffect(() => {
@@ -67,8 +72,12 @@ function Game({ data, user, setGameOn, setIsFirstTime }) {
   }, []);
 
   useEffect(() => {
+    if (isGameOver) setMessage("Game Over!");
+  }, [isGameOver]);
+
+  useEffect(() => {
     if (choiceOne && choiceTwo) {
-      setDisabled(true);
+      // setDisabled(true);
       if (choiceOne.corresponding === choiceTwo.corresponding) {
         setCards(
           cards.map((card) => {
@@ -77,17 +86,12 @@ function Game({ data, user, setGameOn, setIsFirstTime }) {
               : { ...card };
           })
         );
+        setMessage("match");
         resetTurn();
       } else {
-        timerId3.current = setTimeout(() => {
-          resetTurn();
-          cardsRef.current.focus();
-        }, 4000);
+        setMessage("mismatch");
       }
     }
-    // return () => {
-    //   clearTimeout(timeout)
-    // }
   }, [choiceOne, choiceTwo]);
 
   console.log("isGameOver", isGameOver);
@@ -101,7 +105,7 @@ function Game({ data, user, setGameOn, setIsFirstTime }) {
       })
       .catch(() => {
         console.log("error");
-      }); // TBD!!!
+      });
   }, [isGameOver]);
 
   return (
@@ -128,7 +132,7 @@ function Game({ data, user, setGameOn, setIsFirstTime }) {
             card={card}
             flipped={card === choiceOne || card === choiceTwo || card.match}
             handleChoice={handleChoice}
-            disabled={disabled}
+            // disabled={disabled}
           />
         ))}
       </ul>

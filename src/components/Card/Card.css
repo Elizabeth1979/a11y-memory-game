@@ -34,6 +34,15 @@
   border-radius: 5px;
 }
 
+.card.flipped:has(.wrong) {
+  background-color: var(--active-card-background);
+  color: var(--active-card-text);
+}
+
+.card.flipped:has(.correct) {
+  /* filter: alpha(opacity=60); */
+}
+
 .front {
   display: block;
 }
@@ -47,16 +56,10 @@
   transition: all 250ms ease-in-out;
 }
 
-.card-button:disabled {
-  cursor: not-allowed;
-  filter: blur(5px);
-  filter: grayscale(100%);
-}
-
-.card-button:not(:disabled):hover,
-.animal-btn:not(:disabled):focus {
+.card-button:hover,
+.animal-btn:focus {
   scale: 1.1;
-}
+} 
 
 .card-description span {
   display: block;

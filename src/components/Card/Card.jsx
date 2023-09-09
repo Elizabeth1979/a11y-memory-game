@@ -2,13 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import "./Card.css";
 import parse from "html-react-parser";
 
-function Card({ card, handleChoice, flipped, disabled }) {
+function Card({ card, handleChoice, flipped }) {
   const cardRef = useRef(null);
 
   const handleClick = () => {
-    if (!disabled) {
       handleChoice(card);
-    }
 
     setTimeout(() => {
       cardRef.current.focus();
@@ -21,7 +19,6 @@ function Card({ card, handleChoice, flipped, disabled }) {
         <button
           aria-label={`front of card ${card.cardNumber}`}
           className="card-button"
-          disabled={disabled}
           onClick={handleClick}
         ></button>
       </div>

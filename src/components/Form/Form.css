@@ -24,6 +24,18 @@ figcaption {
   max-width: 45ch;
 }
 
+.keyboard {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.mouse {
+  width: 50px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+
 .ninja {
   font-size: 1.8rem;
   color: var(--outline-color);

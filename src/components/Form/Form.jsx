@@ -40,8 +40,11 @@ function Form({ onStart, isFirstTime }) {
     <section className="form-section">
       <div id="form-description" className="explanation">
         <p>Match questions with answers as fast as you can.</p>
+        <div className="keyboard">
+          <p>Use the keyboard!</p>
+          <img src="/no-mouse.jpeg" alt="no mouse" class="mouse" />
+        </div>
 
-        <p>Use the keyboard!</p>
         <p>
           <span className="ninja">Ninja challenge</span> Use a screen reader{" "}
           <span aria-hidden="true">&#128584;</span>

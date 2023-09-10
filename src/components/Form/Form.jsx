@@ -53,7 +53,7 @@ function Form({ onStart, isFirstTime }) {
           <figcaption>Match Example</figcaption>
         </figure>
         <p className="goodluck">
-          Goodluck <span aria-hidden="true">&#128640;</span>
+          Good luck <span aria-hidden="true">&#128640;</span>
         </p>
       </div>
 

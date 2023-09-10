@@ -8,7 +8,7 @@ aside {
 
 .participants {
   width: fit-content;
-  min-height: 25em;
+  max-height: 25em;
   overflow-y: auto;
   padding: 0.5em 2em;
   border: 1px solid var(--accent-color);

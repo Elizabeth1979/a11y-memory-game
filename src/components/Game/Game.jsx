@@ -69,6 +69,7 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
         resetTurn();
       } else {
         setMessage("mismatch");
+        setTurns((prevTurns) => prevTurns + 1);
       }
     }
   }, [choiceOne, choiceTwo]);

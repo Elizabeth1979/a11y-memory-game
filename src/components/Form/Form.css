@@ -19,7 +19,7 @@ figcaption {
 .explanation {
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  /* gap: 0.5em; */
   margin-bottom: 2em;
   max-width: 45ch;
 }

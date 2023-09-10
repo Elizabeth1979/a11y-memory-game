@@ -88,7 +88,6 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
 
   useEffect(() => {
     if (isGameOver) return;
-
     const timeInterval = setInterval(() => {
       setTime((prevTime) => prevTime + 1);
     }, 1000);

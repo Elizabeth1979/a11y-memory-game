@@ -17,7 +17,7 @@ function Card({ card, handleChoice, flipped }) {
     <li className={`card ${flipped ? "flipped" : ""}`}>
       <div className="front">
         <button
-          aria-label={`front of card ${card.cardNumber}`}
+          aria-label={`back of card ${card.cardNumber}`}
           className="card-button"
           onClick={handleClick}
         ></button>

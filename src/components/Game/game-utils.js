@@ -33,7 +33,7 @@ const timeRepresentation = (timeFraction) => {
 };
 
 export const calculateTime = (timeInSeconds) => {
-  const seconds = Math.floor((timeInSeconds / 60).toFixed(0));
-  const minutes = timeInSeconds % 60;
-  return `${timeRepresentation(seconds)}:${timeRepresentation(minutes)}`;
+  const minutes = Math.floor((timeInSeconds / 60));
+  const seconds = timeInSeconds % 60;
+  return `${timeRepresentation(minutes)}:${timeRepresentation(seconds)}`;
 };

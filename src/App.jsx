@@ -69,7 +69,7 @@ function App() {
         </div>
         <button
           aria-label="activate dark mode"
-          aria-pressed={isDarkTheme ? "false" : "true"}
+          aria-pressed={isDarkTheme ? "true" : "false"}
           className="theme-btn"
           onClick={toggleTheme}
         >

@@ -115,8 +115,7 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
             )}
           </div>
           <div className="timer-container">
-            <p className="visually-hidden">Timer</p>
-            {calculateTime(time)}
+            <p ><span className="visually-hidden">Timer</span >{calculateTime(time)}</p>
           </div>
           <p className="turns">Turns: {turns}</p>
         </div>

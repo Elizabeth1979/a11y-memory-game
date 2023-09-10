@@ -36,7 +36,7 @@
 
 .turns {
   align-self: center;
-  padding: 0.5em 1.2em;
+  /* padding: 0.5em 1.2em; */
 }
 
 .cards-container {
@@ -45,4 +45,14 @@
   gap: 1em;
   list-style: none;
   padding: 2em 1em;
+}
+
+@media screen and (max-width: 750px) {
+  .game-header p {
+    font-size: 0.8em;
+  }
+
+  .timer-container {
+    font-size: 1em;
+  }
 }

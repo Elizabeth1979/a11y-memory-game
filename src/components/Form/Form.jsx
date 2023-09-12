@@ -46,7 +46,7 @@ function Form({ onStart, isFirstTime, isDarkTheme }) {
           <img src="/no-mouse.jpeg" alt="no mouse" className="mouse" />
         </div>
         <p>
-          <span className="ninja">Ninja challenge</span> Use a screen reader{" "}
+          <span className="ninja">Ninja challenge</span> - use a screen reader{" "}
           <span aria-hidden="true">&#128584;</span>
         </p>
         <p className="goodluck">

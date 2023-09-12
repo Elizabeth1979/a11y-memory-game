@@ -9,8 +9,7 @@
   outline: none;
 }
 
-.game-header,
-.game-footer {
+.game-header {
   font-size: 1.8rem;
   display: flex;
   justify-content: space-around;
@@ -23,16 +22,6 @@
   text-align: center;
   border: 1px solid var(--text-color);
   border-radius: 5px;
-}
-
-.game-btn {
-  background-color: var(--accent-background-color);
-  color: var(--accent-text-color);
-  padding: 0.5em 1.2em;
-  border-radius: 5px;
-  width: 10em;
-  align-self: center;
-  box-shadow: 0 4px 8px 0 var(--text-color);
 }
 
 .turns {

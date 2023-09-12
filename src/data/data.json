@@ -98,8 +98,8 @@
   {
     "id": "17",
     "topic": "Forms",
-    "question": "An attribute that connects the form label with the input",
-    "answer": "the <code>for</code> attribute which corresponds to the input <code>id</code>"
+    "question": "An attribute that connects the form <code>label</code> with the input <code>id</code>",
+    "answer": "the <code>for</code> attribute"
   },
   {
     "id": "18",

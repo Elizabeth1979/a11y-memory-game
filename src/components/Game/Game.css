@@ -1,31 +1,28 @@
 .game-section {
+  margin: 0;
   display: flex;
   flex-direction: column;
-  max-width: 90%;
-  margin: 0 auto;
-  justify-content: space-between;
+  justify-content: space-around;
   min-height: 100%;
-  padding: 1em;
   outline: none;
 }
 
 .game-header {
-  font-size: 1.8rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
+.game-header p {
+  font-size: clamp(1.5rem, 5vw, 3rem);
+}
+
 .timer-container {
-  min-width: 4em;
-  font-size: 3rem;
+  min-width: 8em;
   text-align: center;
   border: 1px solid var(--text-color);
   border-radius: 5px;
-}
-
-.turns {
-  align-self: center;
+  padding: 0.5em 0;
 }
 
 .cards-container {
@@ -36,18 +33,17 @@
   padding: 2em 1em;
 }
 
-@media screen and (max-width: 750px) {
-  .game-header p {
-    font-size: 0.8em;
-  }
 
-  .timer-container {
-    font-size: 1em;
+@media screen and (max-width: 400px) {
+  .game-header {
+    flex-direction: column;
+    gap: 1em;
   }
 }
 
+
 @media screen and (min-width: 1200px) {
-  .cards-container {
+  .game-section {
     max-width: 50em;
     margin: 0 auto;
   }

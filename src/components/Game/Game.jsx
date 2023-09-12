@@ -52,10 +52,6 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
   }, []);
 
   useEffect(() => {
-    if (isGameOver) setMessage("Game Over!");
-  }, [isGameOver]);
-
-  useEffect(() => {
     if (choiceOne && choiceTwo) {
       if (choiceOne.corresponding === choiceTwo.corresponding) {
         setCards(

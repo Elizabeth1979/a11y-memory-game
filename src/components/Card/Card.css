@@ -18,20 +18,27 @@
   transform: rotate(0deg);
 } */
 
-.flipped .back {
-  display: block;
-}
-
-.flipped .front {
-  display: none;
-}
-
 .back {
-  display: none;
+  visibility: visible;
+}
+
+.front {
+  visibility: hidden;
+  position: absolute;
+  top:0;
+  right:0;
   width: 100%;
   aspect-ratio: 1/1;
   padding: 0.2em;
   border-radius: 5px;
+}
+
+.flipped .front {
+  visibility: visible;
+}
+
+.flipped .back {
+  visibility: hidden;
 }
 
 .card.flipped:has(.wrong) {
@@ -41,10 +48,6 @@
 
 .card.flipped:has(.correct) {
   /* filter: alpha(opacity=60); */
-}
-
-.front {
-  display: block;
 }
 
 .card-button {

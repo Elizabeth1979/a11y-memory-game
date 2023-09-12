@@ -15,7 +15,7 @@ function Card({ card, handleChoice, flipped }) {
 
   return (
     <li className={`card ${flipped ? "flipped" : ""}`}>
-      <div className="front">
+      <div className="back">
         <button
           aria-label={`back of card ${card.cardNumber}`}
           className="card-button"
@@ -27,7 +27,7 @@ function Card({ card, handleChoice, flipped }) {
         role="group"
         aria-labelledby={card.id}
         tabIndex="-1"
-        className={`back ${card.match ? "correct" : "wrong"}`}
+        className={`front ${card.match ? "correct" : "wrong"}`}
       >
         <div id={card.id}>
           <p className="card-type">{card.type}</p>

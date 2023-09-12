@@ -56,6 +56,14 @@
   transition: all 250ms ease-in-out;
 }
 
+.dark-theme .card-button {
+  filter: invert();
+}
+
+.dark-theme .card-button:focus-within {
+  outline: 2px solid var(--accent-color);
+}
+
 .card-button:hover,
 .card-button:focus {
   scale: 1.1;

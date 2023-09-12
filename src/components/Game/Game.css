@@ -3,7 +3,7 @@
   flex-direction: column;
   max-width: 90%;
   margin: 0 auto;
-  justify-content:space-between;
+  justify-content: space-between;
   min-height: 100%;
   padding: 1em;
   outline: none;
@@ -17,10 +17,11 @@
 }
 
 .timer-container {
+  min-width: 4em;
   font-size: 3rem;
+  text-align: center;
   border: 1px solid var(--text-color);
   border-radius: 5px;
-  padding: 5px 10px;
 }
 
 .turns {
@@ -42,5 +43,12 @@
 
   .timer-container {
     font-size: 1em;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .cards-container {
+    max-width: 50em;
+    margin: 0 auto;
   }
 }

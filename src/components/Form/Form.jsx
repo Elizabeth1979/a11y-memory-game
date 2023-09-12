@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import "./Form.css";
 import { addUser } from "../../firebase/database";
 import { checkEmail, checkNickname, createUniqueNameForDB, errors } from "./form-utils";
 
-function Form({ onStart, isFirstTime }) {
+function Form({ onStart, isFirstTime, isDarkTheme }) {
   const nicknameRef = useRef(null);
   const emailRef = useRef(null);
   const [formFieldsValidation, setFormFieldsValidation] = useState({
@@ -53,7 +53,7 @@ function Form({ onStart, isFirstTime }) {
           Good luck <span aria-hidden="true">&#128640;</span>
         </p>
         <figure>
-          <img src="/example.png" alt="" />
+          <img src={isDarkTheme ? "/example-dark.png" : "/example-light.png"} alt="" />
           <figcaption>Match Example</figcaption>
         </figure>
         

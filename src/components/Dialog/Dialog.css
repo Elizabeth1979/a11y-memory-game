@@ -1,0 +1,36 @@
+dialog {
+    border-radius: 5px;
+    /* background-color: var(--background-color);
+  color: var(--text-color); */
+    /* border: 1px solid var(--text-color); */
+}
+
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dialog-container {
+  min-height: 50vh;
+  padding: 2em;
+  
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+.result {
+  max-width: 20ch;
+}
+
+.new-game-btn {
+  background-color: var(--accent-background-color);
+  color: var(--accent-text-color);
+  padding: 0.5em 1.2em;
+  border-radius: 5px;
+  width: 10em;
+  align-self: center;
+  box-shadow: 0 4px 8px 0 var(--text-color);
+}

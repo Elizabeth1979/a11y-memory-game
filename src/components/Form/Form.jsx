@@ -39,6 +39,7 @@ function Form({ onStart, isFirstTime }) {
   return (
     <section className="form-section">
       <div id="form-description" className="explanation">
+        <h2 className="instructions-title">Read this first!</h2>
         <p>Match questions with answers as fast as you can.</p>
         <div className="keyboard">
           <p>Use the keyboard!</p>
@@ -48,13 +49,14 @@ function Form({ onStart, isFirstTime }) {
           <span className="ninja">Ninja challenge</span> Use a screen reader{" "}
           <span aria-hidden="true">&#128584;</span>
         </p>
+        <p className="goodluck">
+          Good luck <span aria-hidden="true">&#128640;</span>
+        </p>
         <figure>
           <img src="/example.png" alt="" />
           <figcaption>Match Example</figcaption>
         </figure>
-        <p className="goodluck">
-          Good luck <span aria-hidden="true">&#128640;</span>
-        </p>
+        
       </div>
 
       <form

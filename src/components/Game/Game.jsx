@@ -4,13 +4,13 @@ import { prepareData, calculateTime } from "./game-utils";
 import Card from "../Card/Card";
 import { updateScore } from "../../firebase/database";
 import Confetti from "../../Confetti";
+import Dialog from "../Dialog/Dialog";
 
 function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
-  // const [isFirstGame, setIsFirstGame] = useState(true);
   const gameRef = useRef(null);
   const [time, setTime] = useState(0);
 
@@ -102,19 +102,12 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
       {isGameOver && <Confetti />}
       <section ref={gameRef} aria-label="game panel" tabIndex="-1" className="game-section">
         <div className="game-header">
-          <div>
-            {isGameOver ? (
-              <p>
-                Game over! <span aria-hidden="true">&#127942;</span>
-              </p>
-            ) : (
-              <p>
-                Game on! <span aria-hidden="true">&#9203;</span>
-              </p>
-            )}
-          </div>
+          {!isGameOver && <p className="visually-hidden">Game on!</p>}
           <div className="timer-container">
-            <p ><span className="visually-hidden">Timer</span >{calculateTime(time)}</p>
+            <p role="text">
+              <span className="visually-hidden">Timer</span>
+              {calculateTime(time)}
+            </p>
           </div>
           <p className="turns">Turns: {turns}</p>
         </div>
@@ -128,12 +121,8 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
             />
           ))}
         </ul>
-        <div className="game-footer">
-          <button className="game-btn" onClick={goToRegistrationForm}>
-            New Game
-          </button>
-        </div>
       </section>
+      <Dialog isGameOver={isGameOver} goToRegistrationForm={goToRegistrationForm} />
     </>
   );
 }

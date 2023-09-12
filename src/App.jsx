@@ -99,7 +99,7 @@ function App() {
       <footer>
         <p>Created by e11i</p>
       </footer>
-      <Liveregion message={message} setMessage={setMessage}/>
+      <Liveregion message={message} setMessage={setMessage} />
     </div>
   );
 }

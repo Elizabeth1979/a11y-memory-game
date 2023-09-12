@@ -67,6 +67,7 @@ header {
 }
 
 h1 {
+  font-weight: 400;
   font-size: clamp(1.5rem, 7vw, 4rem);
   background-image: linear-gradient(to right, var(--gradient-left), var(--gradient-right));
   -webkit-background-clip: text;
@@ -74,7 +75,8 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(1.6rem, 2vw, 2rem); 
+  font-weight: 400;
+  font-size: clamp(2rem, 5vw, 2rem); 
 }
 
 .a11y-svg {
@@ -102,7 +104,7 @@ main {
   display: flex;
   gap: 3em;
   margin: 0 auto;
-  max-width: 80%;
+  max-width: 90%;
 }
 
 .welcome-container > .form {
@@ -123,7 +125,7 @@ footer {
   align-items: center;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 950px) {
   header {
     align-items: end;
   }

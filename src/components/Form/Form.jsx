@@ -42,16 +42,16 @@ function Form({ onStart, isFirstTime, isDarkTheme }) {
         <h2 className="instructions-title">Read this first!</h2>
         <p>Match questions with answers as fast as you can.</p>
         <div className="keyboard">
-          <p>Use the keyboard!</p>
+          <p>Use only the keyboard</p>
           <img src="/no-mouse.jpeg" alt="no mouse" className="mouse" />
         </div>
         <p>
           <span className="ninja">Ninja challenge</span> - use a screen reader{" "}
           <span aria-hidden="true">&#128584;</span>
         </p>
-        <p className="goodluck">
+        {/* <p className="goodluck">
           Good luck <span aria-hidden="true">&#128640;</span>
-        </p>
+        </p> */}
         <figure>
           <img src={isDarkTheme ? "/example-dark.png" : "/example-light.png"} alt="" />
           <figcaption>Match Example</figcaption>

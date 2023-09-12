@@ -31,7 +31,7 @@ function Rating() {
   return (
     <aside>
       <h2 className="rating-title">
-        Top scores <span aria-hidden="true">&#127942;</span>
+        Scores <span aria-hidden="true">&#127942;</span>
       </h2>
       <div className="list-container">
         {!!filteredUsers.length && (
@@ -48,7 +48,6 @@ function Rating() {
               .map((user) => {
                 return (
                   <li className="participant" key={user.name}>
-                    <div>
                       <p className="nickname">{user.nickname}</p>
                       <div className="scoring">
                         <p>
@@ -58,7 +57,6 @@ function Rating() {
                         </p>
                         <p>{`${user.turns} turns`}</p>
                       </div>
-                    </div>
                   </li>
                 );
               })}

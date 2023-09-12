@@ -11,7 +11,11 @@ function Dialog({ user, time, isGameOver, goToRegistrationForm }) {
   };
 
   useEffect(() => {
-    if (isGameOver) showModal();
+    if (isGameOver) {
+      setTimeout(()=>{
+        showModal();
+      }, 2000);
+    }
   }, [isGameOver]);
 
   console.log(user);
@@ -22,9 +26,16 @@ function Dialog({ user, time, isGameOver, goToRegistrationForm }) {
         <h2 className="dialog-title">
           Game over! <span aria-hidden="true">&#127942;</span>
         </h2>
-        <p className="result">
-          Congrats {user.nickname}, you finished the game at {calculateTime(time)}
+        <div className="result">
+        <p>
+          Congrats {user.nickname}, 
         </p>
+        <p>your time is {calculateTime(time)}</p>
+        <p>
+          You are at place 11 out of 22
+        </p>
+        </div>
+        
         <button className="new-game-btn" onClick={goToRegistrationForm}>
           New Game
         </button>

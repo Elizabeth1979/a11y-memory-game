@@ -16,11 +16,11 @@ function Rating() {
 
   useEffect(() => {
     const ratingContainer = ratingContainerRef.current;
-    if(ratingContainer) {
+    if (ratingContainer) {
       setIsOverflowing(ratingContainer.scrollHeight > ratingContainer.clientHeight);
     }
   }, [users]);
-  
+
   const filteredUsers = users.filter((user) => {
     return user.turns !== 0;
   });
@@ -33,30 +33,38 @@ function Rating() {
       <h2 className="rating-title">
         Top scores <span aria-hidden="true">&#127942;</span>
       </h2>
-      {!!filteredUsers.length && (
-        <ol ref={ratingContainerRef} aria-label="participants" tabIndex={isOverflowing ? 0 : -1} className="participants">
-          {filteredUsers
-            .sort((user1, user2) => {
-              return user1.bestTimeSeconds - user2.bestTimeSeconds;
-            })
-            .map((user) => {
-              return (
-                <li className="participant" key={user.name}>
-                  <div>
-                    <p className="nickname">{user.nickname}</p>
-                    <div className="scoring">
-                      <p>
-                        <span className="visually-hidden">time</span>{user.bestTimeStr}
-                        <span aria-hidden="true">{` |`}</span>
-                      </p>
-                      <p>{`${user.turns} turns`}</p>
+      <div className="list-container">
+        {!!filteredUsers.length && (
+          <ol
+            ref={ratingContainerRef}
+            aria-label="participants"
+            {...(isOverflowing && {tabIndex: 0})}
+            className="participants"
+          >
+            {filteredUsers
+              .sort((user1, user2) => {
+                return user1.bestTimeSeconds - user2.bestTimeSeconds;
+              })
+              .map((user) => {
+                return (
+                  <li className="participant" key={user.name}>
+                    <div>
+                      <p className="nickname">{user.nickname}</p>
+                      <div className="scoring">
+                        <p>
+                          <span className="visually-hidden">time</span>
+                          {user.bestTimeStr}
+                          <span aria-hidden="true">{` |`}</span>
+                        </p>
+                        <p>{`${user.turns} turns`}</p>
+                      </div>
                     </div>
-                  </div>
-                </li>
-              );
-            })}
-        </ol>
-      )}
+                  </li>
+                );
+              })}
+          </ol>
+        )}
+      </div>
     </aside>
   );
 }

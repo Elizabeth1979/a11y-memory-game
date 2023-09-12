@@ -79,7 +79,7 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
 
     updateScore(user, calculateTime(time), time, turns)
       .then(() => {
-        console.log("success");
+        console.log("user updated");
       })
       .catch(() => {
         console.log("error");
@@ -122,7 +122,7 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
           ))}
         </ul>
       </section>
-      <Dialog isGameOver={isGameOver} goToRegistrationForm={goToRegistrationForm} />
+      <Dialog user={user} time={time} isGameOver={isGameOver} goToRegistrationForm={goToRegistrationForm} />
     </>
   );
 }

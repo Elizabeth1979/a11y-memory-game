@@ -1,21 +1,20 @@
 import { useEffect, useRef } from "react";
 import "./Dialog.css";
 import { createPortal } from "react-dom";
+import { calculateTime } from "../Game/game-utils";
 
-function Dialog({ isGameOver, goToRegistrationForm }) {
+function Dialog({ user, time, isGameOver, goToRegistrationForm }) {
   const dialogRef = useRef(null);
 
   const showModal = () => {
     dialogRef.current.showModal();
   };
 
-  const closeModal = () => {
-    dialogRef.current.close();
-  };
-
   useEffect(() => {
     if (isGameOver) showModal();
   }, [isGameOver]);
+
+  console.log(user);
 
   return createPortal(
     <dialog ref={dialogRef}>
@@ -24,7 +23,7 @@ function Dialog({ isGameOver, goToRegistrationForm }) {
           Game over! <span aria-hidden="true">&#127942;</span>
         </h2>
         <p className="result">
-          You finished the game at 02:10 which ranks you at place 10 out of 100
+          Congrats {user.nickname}, you finished the game at {calculateTime(time)}
         </p>
         <button className="new-game-btn" onClick={goToRegistrationForm}>
           New Game

@@ -1,7 +1,7 @@
 :root {
   font-family: "Wix Madefor Text", sans-serif;
   --accent-background-color: hsl(255, 50%, 30%);
-  --accent-text-color: hsl(255, 50%, 95%);
+  --accent-text-color: hsl(255, 50%, 90%);
 
   --gradient-left: hsl(345, 90%, 50%);
   --gradient-right: hsl(255, 50%, 50%);

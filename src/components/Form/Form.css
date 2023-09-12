@@ -13,11 +13,12 @@
 
 figure {
   border: 3px dotted var(--accent-color);
+  border-radius: 5px;
 }
 
 figcaption {
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 
 .explanation {
@@ -46,10 +47,6 @@ figcaption {
 .goodluck {
   font-size: clamp(1rem, 5vw, 1.5rem);
   margin-bottom: 0.5em;
-}
-
-.dark-theme img {
-  filter: brightness(70%);
 }
 
 /* img {

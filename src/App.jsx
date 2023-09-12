@@ -88,7 +88,7 @@ function App() {
         ) : (
           <div className="welcome-container">
             <div className="form">
-              <Form onStart={onStart} isFirstTime={isFirstTime} />
+              <Form onStart={onStart} isFirstTime={isFirstTime} isDarkTheme={isDarkTheme}/>
             </div>
             <div className="rating">
               <Rating />

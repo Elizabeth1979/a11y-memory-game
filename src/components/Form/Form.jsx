@@ -49,9 +49,6 @@ function Form({ onStart, isFirstTime, isDarkTheme }) {
           <span className="ninja">Ninja challenge</span> - use a screen reader{" "}
           <span aria-hidden="true">&#128584;</span>
         </p>
-        {/* <p className="goodluck">
-          Good luck <span aria-hidden="true">&#128640;</span>
-        </p> */}
         <figure>
           <img src={isDarkTheme ? "/example-dark.png" : "/example-light.png"} alt="" />
           <figcaption>Match Example</figcaption>

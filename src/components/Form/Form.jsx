@@ -11,6 +11,16 @@ function Form({ onStart, isFirstTime, isDarkTheme }) {
     isEmailValid: true,
   });
 
+  const handleNicknameInput = () => {
+    const lowercaseValue = nicknameRef.current.value.toLowerCase();
+    nicknameRef.current.value = lowercaseValue;
+  }
+
+  const handleEmailInput = () => {
+    const lowercaseValue = emailRef.current.value.toLowerCase();
+    emailRef.current.value = lowercaseValue;
+  }
+
   const submitHandler = async (e) => {
     e.preventDefault();
     const emailValue = emailRef.current.value;
@@ -80,6 +90,7 @@ function Form({ onStart, isFirstTime, isDarkTheme }) {
             aria-invalid={!formFieldsValidation.isNicknameValid}
             aria-describedby="nickname-error"
             autoFocus={!isFirstTime}
+            onInput={handleNicknameInput}
           />
           {!formFieldsValidation.isNicknameValid && (
             <p id="nickname-error" className="error small-font">
@@ -98,6 +109,7 @@ function Form({ onStart, isFirstTime, isDarkTheme }) {
             aria-required="true"
             aria-invalid={!formFieldsValidation.isEmailValid}
             aria-describedby="email-error"
+            onInput={handleEmailInput}
           />
           {!formFieldsValidation.isEmailValid && (
             <p id="email-error" className="error small-font">

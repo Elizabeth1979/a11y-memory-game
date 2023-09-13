@@ -35,25 +35,29 @@ function Rating() {
           <ol
             ref={ratingContainerRef}
             aria-label="participants"
-            {...(isOverflowing && {tabIndex: 0})}
+            {...(isOverflowing && { tabIndex: 0 })}
             className="participants"
           >
             {filteredUsers
               .sort((user1, user2) => {
-                return user1.bestTimeSeconds - user2.bestTimeSeconds;
+                if (user1.bestTimeSeconds !== user2.bestTimeSeconds) {
+                  return user1.bestTimeSeconds - user2.bestTimeSeconds;
+                } else {
+                  return user1.turns - user2.turns;
+                }
               })
               .map((user) => {
                 return (
                   <li className="participant" key={user.name}>
-                      <p className="nickname">{user.nickname}</p>
-                      <div className="scoring">
-                        <p>
-                          <span className="visually-hidden">time</span>
-                          {user.bestTimeStr}
-                          <span aria-hidden="true">{` |`}</span>
-                        </p>
-                        <p>{`${user.turns} turns`}</p>
-                      </div>
+                    <p className="nickname">{user.nickname}</p>
+                    <div className="scoring">
+                      <p>
+                        <span className="visually-hidden">time</span>
+                        {user.bestTimeStr}
+                        <span aria-hidden="true">{` |`}</span>
+                      </p>
+                      <p>{`${user.turns} turns`}</p>
+                    </div>
                   </li>
                 );
               })}

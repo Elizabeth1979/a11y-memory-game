@@ -54,9 +54,10 @@ function Dialog({ user, time, isGameOver, goToRegistrationForm }) {
           Game over <span aria-hidden="true">&#127942;</span>
         </h2>
         <p role="text" className="result">
-          <span>Congrats {user?.nickname}!</span> <span>Your time: {calculateTime(time)}</span>
+          <span>Great job {user?.nickname}!</span>
+          <span>Time: {calculateTime(time)}</span>
           <span>
-            Your place: {place.place} out of {place.total}
+            Rank: {place.place} out of {place.total}
           </span>
         </p>
         <button className="new-game-btn" onClick={goToRegistrationForm}>

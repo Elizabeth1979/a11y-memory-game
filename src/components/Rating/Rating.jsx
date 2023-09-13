@@ -28,7 +28,7 @@ function Rating() {
   return (
     <aside>
       <h2 className="rating-title">
-        Scores <span aria-hidden="true">&#127942;</span>
+        Rating <span aria-hidden="true">&#127942;</span>
       </h2>
       <div className="list-container">
         {!!filteredUsers.length && (

@@ -13,6 +13,10 @@
   align-items: center;
 }
 
+.back-link {
+  text-decoration: none;
+}
+
 .game-header p {
   font-size: clamp(1.5rem, 5vw, 3rem);
 }

@@ -11,11 +11,6 @@ function Form({ onStart, isFirstTime, isDarkTheme }) {
     isEmailValid: true,
   });
 
-  const handleNicknameInput = () => {
-    const lowercaseValue = nicknameRef.current.value.toLowerCase();
-    nicknameRef.current.value = lowercaseValue;
-  }
-
   const handleEmailInput = () => {
     const lowercaseValue = emailRef.current.value.toLowerCase();
     emailRef.current.value = lowercaseValue;
@@ -49,8 +44,8 @@ function Form({ onStart, isFirstTime, isDarkTheme }) {
   return (
     <section className="form-section">
       <div id="form-description" className="explanation">
-        <h2 className="instructions-title">Read this first!</h2>
-        <p>Match questions with answers as fast as you can.</p>
+        <h2 className="instructions-title">Instructions</h2>
+        <p>Match the question with the answer as fast as you can</p>
         <div className="keyboard">
           <p>Use only the keyboard</p>
           <img src="/no-mouse.jpeg" alt="no mouse" className="mouse" />
@@ -76,7 +71,7 @@ function Form({ onStart, isFirstTime, isDarkTheme }) {
         onSubmit={submitHandler}
       >
         <h2 className="form-title" id="form-title">
-          Fill in your info to participate
+          To start fill in your info
         </h2>
         <div className="input-container">
           <label htmlFor="nickname">
@@ -90,7 +85,6 @@ function Form({ onStart, isFirstTime, isDarkTheme }) {
             aria-invalid={!formFieldsValidation.isNicknameValid}
             aria-describedby="nickname-error"
             autoFocus={!isFirstTime}
-            onInput={handleNicknameInput}
           />
           {!formFieldsValidation.isNicknameValid && (
             <p id="nickname-error" className="error small-font">

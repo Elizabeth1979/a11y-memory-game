@@ -29,10 +29,10 @@ function Card({ card, handleChoice, flipped }) {
             <p className="card-description">{parse(card.description)}</p>
           </div>
         </div>
-        <span class="fire" aria-hidden="true">
+        <span className="fire" aria-hidden="true">
           &#128293;
         </span>
-        <span class="think" aria-hidden="true">
+        <span className="think" aria-hidden="true">
           &#129300;
         </span>
       </div>

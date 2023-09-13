@@ -99,6 +99,7 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
       {isGameOver && <Confetti />}
       <section ref={gameRef} aria-label="game panel" tabIndex="-1" className="game-section">
         <div className="game-header">
+          <a className="back-link" href="https://a11y-booth.web.app/"><span aria-hidden="true">&#11013;</span> Back</a>
           {!isGameOver && <p className="visually-hidden">Game on!</p>}
           <div className="timer-container">
             <p role="text">

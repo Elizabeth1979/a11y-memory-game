@@ -13,6 +13,7 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
   const [choiceTwo, setChoiceTwo] = useState(null);
   const gameRef = useRef(null);
   const [time, setTime] = useState(0);
+  const [isUserUpdated, setIsUserUpdated] = useState(false);
 
   const isGameOver = cards.length === 0 ? false : cards.every((card) => card.match === true);
 
@@ -61,10 +62,10 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
               : { ...card };
           })
         );
-        setMessage("match");
+        setMessage("It's a match");
         resetTurn();
       } else {
-        setMessage("mismatch");
+        setMessage("Mismatch, try again");
         setTurns((prevTurns) => prevTurns + 1);
       }
     }
@@ -75,7 +76,7 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
 
     updateScore(user, calculateTime(time), time, turns)
       .then(() => {
-        console.log("user updated");
+        setIsUserUpdated(true);
       })
       .catch(() => {
         console.log("error");
@@ -105,7 +106,7 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
               {calculateTime(time)}
             </p>
           </div>
-          <p className="turns">Turns: {turns}</p>
+          <p role="text" className="turns">Turns: {turns}</p>
         </div>
         <ul role="list" aria-label="cards" className="cards-container">
           {cards.map((card) => (
@@ -118,7 +119,14 @@ function Game({ data, user, setGameOn, setMessage, setIsFirstTime }) {
           ))}
         </ul>
       </section>
-      <Dialog user={user} time={time} isGameOver={isGameOver} goToRegistrationForm={goToRegistrationForm} />
+      {isUserUpdated && (
+        <Dialog
+          user={user}
+          time={time}
+          isGameOver={isGameOver}
+          goToRegistrationForm={goToRegistrationForm}
+        />
+      )}
     </>
   );
 }

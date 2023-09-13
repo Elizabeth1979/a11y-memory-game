@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import "./Card.css";
 import parse from "html-react-parser";
 
@@ -23,18 +23,18 @@ function Card({ card, handleChoice, flipped }) {
             onClick={handleClick}
           ></button>
         </div>
-        <div
-          ref={cardRef}
-          role="group"
-          aria-labelledby={card.id}
-          tabIndex="-1"
-          className={`front ${card.match ? "correct" : "wrong"}`}
-        >
-          <div id={card.id}>
+        <div className={`front ${card.match ? "correct" : "wrong"}`}>
+          <div ref={cardRef} role="text" tabIndex="-1" id={card.id}>
             <p className="card-type">{card.type}</p>
             <p className="card-description">{parse(card.description)}</p>
           </div>
         </div>
+        <span class="fire" aria-hidden="true">
+          &#128293;
+        </span>
+        <span class="think" aria-hidden="true">
+          &#129300;
+        </span>
       </div>
     </li>
   );

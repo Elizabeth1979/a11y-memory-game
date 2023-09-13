@@ -16,14 +16,6 @@
   transform-style: preserve-3d;
 }
 
-.card-inner.flipped {
-  transform: rotateY(180deg);
-}
-
-.card-inner.flipped .back{
-  visibility: hidden;
-}
-
 .front,
 .back {
   position: absolute;
@@ -42,6 +34,20 @@
 
 .front {
   transform: rotateY(180deg);
+  border-radius: 5px;
+  visibility: hidden;
+}
+
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-inner.flipped .front {
+  visibility: visible;
+}
+
+.card-inner.flipped .back{
+  visibility: hidden;
 }
 
 .card .flipped:has(.wrong) {
@@ -89,17 +95,17 @@ code {
   font-weight: bold;
 }
 
-.card .flipped:has(.correct)::after {
-  content: "\1F525";
+.fire, .think {
   position: absolute;
   right: 5px;
   bottom: 0;
+  visibility: hidden;
 }
 
-.card .flipped:has(.wrong)::after {
-  content: "\1F914";
-  font-size: 2rem;
-  position: absolute;
-  right: 5px;
-  bottom: 0;
+.flipped:has(.correct) .fire{
+  visibility: visible;
+}
+
+.flipped:has(.wrong) .think{
+  visibility: visible;
 }

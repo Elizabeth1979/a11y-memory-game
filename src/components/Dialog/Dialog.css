@@ -1,19 +1,29 @@
 dialog {
   border-radius: 5px;
-  background-image: linear-gradient(to left, var(--gradient-left), var(--gradient-right));
+  background-image: linear-gradient(to right, var(--gradient-left), var(--gradient-right));
   color: var(--accent-text-color);
   border: none;
-}
-
-.dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.dialog-container {
   min-height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+dialog[open] {
+  -webkit-animation: show 1s ease normal;
+}
+@-webkit-keyframes show{
+  from {
+      scale: 0
+  }
+  to {
+      scale: 1;
+  }
+}
+
+.dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
 }
 
 .dialog-title {
@@ -21,7 +31,8 @@ dialog {
 }
 
 .result {
-  max-width: 30ch;
+  display: flex;
+  flex-direction: column;
 }
 
 .new-game-btn {

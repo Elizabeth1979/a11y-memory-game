@@ -25,9 +25,6 @@ function Rating() {
     return user.turns !== 0;
   });
 
-  console.log("filtered users", filteredUsers);
-  console.log("users", users);
-
   return (
     <aside>
       <h2 className="rating-title">

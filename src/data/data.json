@@ -2,20 +2,20 @@
   {
     "id": "1",
     "topic": "Semantic HTML",
-    "question": "Which attribute is a must on the <code>html</code> tag if the site is in Hebrew",
+    "question": "Which attribute is a must on the <code>html</code> tag if the site is in Hebrew?",
     "answer": "<code>lang='he'</code>"
   },
   {
     "id": "2",
     "topic": "Semantic HTML",
-    "question": "Which attribute is a must on an <code>img</code> tag",
-    "answer": "the <code>alt</code> attribute"
+    "question": "Which attribute is a must on an <code>img</code> tag?",
+    "answer": "the <code>alt</code> attribute."
   },
   {
     "id": "3",
     "topic": "Semantic HTML",
-    "question": "<span>What is wrong with this code:</span><code>&lt;h1&gt;Welcome&lt;/h1&gt;</br>&lt;h3&gt;A11y guidelines&lt;/h3&gt;</code>",
-    "answer": "There is a skip in the heading tags"
+    "question": "<span>What is wrong with this code?</span><code>&lt;h1&gt;Welcome&lt;/h1&gt;</br>&lt;h3&gt;A11y guidelines&lt;/h3&gt;</code>",
+    "answer": "There is a skip in the heading tags."
   },
   {
     "id": "4",
@@ -26,56 +26,56 @@
   {
     "id": "5",
     "topic": "ARIA",
-    "question": "<span>What is the accessible name of this button:</span><code>&lt;button aria-label='Wix'&gt;Click me!&lt;/button&gt;</code>",
+    "question": "<span>What is the accessible name of this button?</span><code>&lt;button aria-label='Wix'&gt;Click me!&lt;/button&gt;</code>",
     "answer": "Wix"
   },
   {
     "id": "6",
     "topic": "ARIA",
-    "question": "<span>What is wrong with this code:</span><code>&lt;body aria-hidden='true'&gt;page content&lt;/body&gt;</code>",
-    "answer": "Screen reader will not read the content of the page"
+    "question": "<span>What is wrong with this code?</span><code>&lt;body aria-hidden='true'&gt;page content&lt;/body&gt;</code>",
+    "answer": "Screen reader will not read the content of the page."
   },
   {
     "id": "7",
     "topic": "ARIA",
-    "question": "Which technique can be used to announce dynamic content changes to a screen reader user",
-    "answer": "ARIA Live Regions"
+    "question": "Which technique can be used to announce dynamic content changes to a screen reader user?",
+    "answer": "ARIA Live Regions."
   },
   {
     "id": "8",
     "topic": "Keyboard",
     "question": "The <code>tabindex</code> attribute",
-    "answer": "Is not greater than 0"
+    "answer": "Should not be greater than 0."
   },
   {
     "id": "9",
     "topic": "Keyboard",
-    "question": "What is the css property used by browsers to style the keyboard focus ring",
-    "answer": "The <code>outline</code> property"
+    "question": "What is the css property used by browsers to style the keyboard focus ring?",
+    "answer": "The <code>outline</code> property."
   },
   {
     "id": "10",
     "topic": "Keyboard",
-    "question": "Which method should be used when managing keyboard focus",
+    "question": "Which method should be used when managing keyboard focus?",
     "answer": "<code>HTMLElement.focus()</code>"
   },
   {
     "id": "11",
     "topic": "Keyboard",
-    "question": "Which attribute should be defined on a non-interactive element in order to set keyboard focus",
+    "question": "Which attribute should be defined on a non-interactive element in order to set keyboard focus?",
     "answer": "<code>tabindex='-1'</code>"
   },
   {
     "id": "12",
     "topic": "Keyboard",
-    "question": "<span>What is missing in this CSS code:</span><code><span>a:hover .tooltip</span>{ show tooltip }</code>",
+    "question": "<span>What is missing in this CSS code?</span><code><span>a:hover .tooltip</span>{ show tooltip }</code>",
     "answer": "<span>Focus state definition:</span><code><span>a:hover .tooltip, a:focus .tooltip</span>{ show tooltip }</code>"
   },
   {
     "id": "13",
     "topic": "Keyboard and Screen reader",
-    "question": "Which flexbox property might create a disconnect between the visual order and the logical order",
-    "answer": "The <code>order</code> property"
+    "question": "Which flexbox property might create a disconnect between the visual order and the logical order?",
+    "answer": "The <code>order</code> property."
   },
   {
     "id": "14",
@@ -86,25 +86,25 @@
   {
     "id": "15",
     "topic": "Responsiveness",
-    "question": "<span>Fix this CSS code to make the container responsive:</span><code><span>.container</span> { height: 100vh; }</code>",
+    "question": "<span>Fix the CSS code to makes this container responsive:</span><code><span>.container</span> { height: 100vh; }</code>",
     "answer": "<code><span>.container</span> { min-height: 100vh; }</code>"
   },
   {
     "id": "16",
     "topic": "Motion and Animation",
-    "question": "Which media query can be used to detect user preferences for motion and animation",
+    "question": "Which media query should be used to detect user preferences for motion and animation?",
     "answer": "<code>@media (prefers-reduced-motion)</code>"
   },
   {
     "id": "17",
     "topic": "Forms",
-    "question": "An attribute that connects the form <code>label</code> with the input <code>id</code>",
-    "answer": "the <code>for</code> attribute"
+    "question": "Which attribute programatically connects the form <code>label</code> with the input <code>id</code>?",
+    "answer": "the <code>for</code> attribute."
   },
   {
     "id": "18",
     "topic": "General",
-    "question": "The name of the semantic version of the DOM created by the browser and used by assistive technologies",
-    "answer": "Accessibility Tree"
+    "question": "What is the name of the semantic version of the DOM created by the browser and used by assistive technologies.",
+    "answer": "Accessibility Tree."
   }
 ]

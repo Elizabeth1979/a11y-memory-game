@@ -7,3 +7,4 @@ Use your keyboard only!
 Challenge - try to play with a screen reader on.
 
 
+[![Contact me on Codementor](https://www.codementor.io/m-badges/elizabethpatrick538/book-session.svg)](https://www.codementor.io/@elizabethpatrick538?refer=badge)
